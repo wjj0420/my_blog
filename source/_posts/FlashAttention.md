@@ -5,4 +5,4 @@ categories: [学习]
 tags: [LLM, ai infra]
 ---
 
-![](C:\Users\1\Pictures\Screenshots\屏幕截图 2026-06-21 234309.png)
+![](https://picgocloud.com/m/57d76f16-cc53-40d8-90a6-083cde26ca4f.png)
