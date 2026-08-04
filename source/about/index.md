@@ -3,7 +3,7 @@ title: 关于
 layout: about
 ---
 
-你好，我是博主 👋
+你好，我是 Jaspery 👋
 
 这个博客用来记录我的学习与生活。
 
