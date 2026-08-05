@@ -1,0 +1,5 @@
+/* 隐藏评论中的浏览器与操作系统信息 */
+#waline .wl-browser,
+#waline .wl-os {
+  display: none;
+}
