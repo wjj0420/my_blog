@@ -6,3 +6,4 @@ Thumbs.db
 *.log
 .deploy_git/
 /logo.png
+/background.png
