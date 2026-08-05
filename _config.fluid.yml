@@ -860,7 +860,7 @@ valine:
 # See: https://waline.js.org/
 waline:
   # 你的 Waline 服务端地址，部署完成后替换，例如 https://xxx.vercel.app
-  serverURL: 'https://waline-ten-dusky.vercel.app'
+  serverURL: 'https://comment.jaspery.top'
   path: window.location.pathname
   meta: ['nick', 'mail', 'link']
   requiredMeta: ['nick']
