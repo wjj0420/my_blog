@@ -40,5 +40,3 @@ git add .
 git commit -m "新文章"
 git push
 ```
-
-一切就绪，祝你写作愉快！
