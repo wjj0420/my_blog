@@ -108,9 +108,10 @@ feed:
 # Markdown 渲染（支持 KaTeX 公式）
 markdown:
   plugins:
-    - name: '@traptitech/markdown-it-katex'
+    - name: '@renbaoshuo/markdown-it-katex'
       options:
         strict: false
+        skipDelimitersCheck: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

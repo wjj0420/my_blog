@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@adobe/css-tools": "^4.5.0",
-    "@traptitech/markdown-it-katex": "^3.6.0",
+    "@renbaoshuo/markdown-it-katex": "^2.0.2",
     "css": "^3.0.0",
     "hexo": "^7.0.0",
     "hexo-generator-archive": "^2.0.0",

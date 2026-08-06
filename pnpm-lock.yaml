@@ -11,9 +11,9 @@ importers:
       '@adobe/css-tools':
         specifier: ^4.5.0
         version: 4.5.0
-      '@traptitech/markdown-it-katex':
-        specifier: ^3.6.0
-        version: 3.6.0
+      '@renbaoshuo/markdown-it-katex':
+        specifier: ^2.0.2
+        version: 2.0.2(katex@0.16.47)(markdown-it@13.0.1)
       css:
         specifier: ^3.0.0
         version: 3.0.0
@@ -80,8 +80,11 @@ packages:
   '@nodable/entities@3.0.0':
     resolution: {integrity: sha512-8L9xFeTYKhm49xfIypoe2W5wV1m/3Z58kT+7kR9A8OyFxcPduI4VmxaUMQyKYrRjUoLLSXv6EKKID5Tvj9cUVw==}
 
-  '@traptitech/markdown-it-katex@3.6.0':
-    resolution: {integrity: sha512-CnJzTWxsgLGXFdSrWRaGz7GZ1kUUi8g3E9HzJmeveX1YwVJavrKYqysktfHZQsujdnRqV5O7g8FPKEA/aeTkOQ==}
+  '@renbaoshuo/markdown-it-katex@2.0.2':
+    resolution: {integrity: sha512-peKX5VcHY2DXQ2AQaTduWkGwaQ2QSlscoOqRmOt6Fm9W+WmYacWnkzGsQeLlDw/lg9ZPSkE/SPSZnJC/kDEwnA==}
+    peerDependencies:
+      katex: '*'
+      markdown-it: '>=6'
 
   a-sync-waterfall@1.0.1:
     resolution: {integrity: sha512-RYTOHHdWipFUliRFMCS4X2Yn2X8M87V/OpSqWzKKOGhzqyUxzyVmhHDH9sAvG+ZuQf/TAOFsLCpMw09I1ufUnA==}
@@ -888,9 +891,10 @@ snapshots:
 
   '@nodable/entities@3.0.0': {}
 
-  '@traptitech/markdown-it-katex@3.6.0':
+  '@renbaoshuo/markdown-it-katex@2.0.2(katex@0.16.47)(markdown-it@13.0.1)':
     dependencies:
       katex: 0.16.47
+      markdown-it: 13.0.1
 
   a-sync-waterfall@1.0.1: {}
 
