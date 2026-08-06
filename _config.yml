@@ -105,6 +105,13 @@ feed:
   path: atom.xml
   limit: 20
 
+# Markdown 渲染（支持 KaTeX 公式）
+markdown:
+  plugins:
+    - name: '@traptitech/markdown-it-katex'
+      options:
+        strict: false
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
