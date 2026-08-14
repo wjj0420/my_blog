@@ -4,6 +4,7 @@ date: 2026-08-04
 updated: 2026-08-04
 categories: [随笔]
 tags: [欢迎, 开始]
+index_img: /img/covers/welcome.svg
 ---
 
 你好呀，欢迎来到我的博客 👋

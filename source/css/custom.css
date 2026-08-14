@@ -1,5 +1,129 @@
-/* 隐藏评论中的浏览器与操作系统信息 */
+/* =====================================================
+   Jaspery 博客自定义样式
+   （在 hexo-theme-fluid 默认样式基础上增强）
+   ===================================================== */
+
+/* ---- 1. 隐藏评论中的浏览器与操作系统信息（原有保留） ---- */
 #waline .wl-browser,
 #waline .wl-os {
   display: none;
+}
+
+/* ---- 2. 首页文章卡片动效 ---- */
+.index-card {
+  transition: transform 0.25s ease;
+}
+.index-card:hover {
+  transform: translateY(-3px);
+}
+.index-img img {
+  transition: transform 0.45s ease, box-shadow 0.3s ease;
+}
+.index-card:hover .index-img img {
+  transform: scale(1.045);
+  box-shadow: 0 10px 22px 0 rgba(0, 0, 0, 0.22), 0 6px 18px 0 rgba(0, 0, 0, 0.18);
+}
+.index-header a {
+  transition: color 0.2s ease;
+}
+.index-card:hover .index-header a {
+  color: var(--link-hover-color, #30a9de);
+}
+
+/* ---- 3. 代码块：Mac 风格圆点 + 圆角 ---- */
+figure.highlight {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+figure.highlight::before {
+  content: "";
+  position: absolute;
+  top: 0.8rem;
+  left: 1rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 1.15rem 0 0 #ffbd2e, 2.3rem 0 0 #27c93f;
+  z-index: 2;
+  pointer-events: none;
+}
+.markdown-body figure.highlight pre,
+.markdown-body figure.highlight td.code > pre {
+  padding-top: 2rem;
+}
+.markdown-body figure.highlight table {
+  border-radius: 8px;
+}
+
+/* 行内代码：给个淡色底 */
+.markdown-body code {
+  border-radius: 4px;
+}
+
+/* ---- 4. 引用块美化 ---- */
+.markdown-body blockquote {
+  border-left: 4px solid var(--link-hover-color, #30a9de);
+  background-color: rgba(48, 169, 222, 0.06);
+  border-radius: 0 6px 6px 0;
+  padding: 0.6rem 1rem;
+}
+html[data-user-color-scheme="dark"] .markdown-body blockquote {
+  background-color: rgba(48, 169, 222, 0.12);
+}
+
+/* ---- 5. 选中文字颜色 ---- */
+::selection {
+  background: #30a9de;
+  color: #fff;
+}
+
+/* ---- 6. 滚动条美化（WebKit / Chromium） ---- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color, #c4c6c9);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover-color, #a6a6a6);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---- 7. 平滑滚动 ---- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- 8. 链接下划线细节 ---- */
+.markdown-body a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(3, 102, 214, 0.35);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.markdown-body a:hover {
+  border-bottom-color: var(--link-hover-color, #30a9de);
+}
+
+/* ---- 9. 图片圆角与微阴影（文章正文） ---- */
+.markdown-body img {
+  border-radius: 6px;
+}
+
+/* ---- 10. 表格 hover 高亮 ---- */
+.markdown-body table tbody tr {
+  transition: background-color 0.15s ease;
+}
+.markdown-body table tbody tr:hover {
+  background-color: rgba(48, 169, 222, 0.07);
+}
+
+/* ---- 11. 返回顶部按钮圆角微调 ---- */
+#scroll-top-button {
+  border-radius: 50%;
 }
