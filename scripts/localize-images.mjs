@@ -102,9 +102,10 @@ async function main() {
       const [full, alt, url] = m;
       const name = await download(url, postName);
       if (!name) continue;
-      // 相对引用：图片与文章同目录，Typora 和网站都能显示
-      if (full !== '![' + alt + '](' + name + ')') {
-        md = md.replace(full, '![' + alt + '](' + name + ')');
+      // 相对引用：带文章目录前缀（如 文章名/图片.png），Typora 和网站都能显示
+      const rel = postName + '/' + name;
+      if (full !== '![' + alt + '](' + rel + ')') {
+        md = md.replace(full, '![' + alt + '](' + rel + ')');
         changed = true;
         totalDownloaded++;
       }
