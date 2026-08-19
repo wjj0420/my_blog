@@ -14,7 +14,7 @@ index_img: /img/covers/flashattention.svg
 
 ## 二、 Background
 
-![GPU 内存层级结构：SRAM / HBM / DRAM](/img/posts/flashattention-memory.png)
+![GPU 内存层级结构：SRAM / HBM / DRAM](flashattention-memory.png)
 
 ### 2.1 硬件特性
 
@@ -70,7 +70,7 @@ $$
 
 分块计算的详细流程：
 
-![FlashAttention 分块计算流程](/img/posts/flashattention-flow.png)
+![FlashAttention 分块计算流程](flashattention-flow.png)
 
 1. 如图1右侧所示，先从行维度将Q分成$T_r$个块，将K和V都分成$T_c$个块。
 

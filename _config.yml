@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
@@ -105,8 +105,12 @@ feed:
   path: atom.xml
   limit: 20
 
-# Markdown 渲染（支持 KaTeX 公式）
+# Markdown 渲染（支持 KaTeX 公式 + 文章图片相对路径重写）
 markdown:
+  images:
+    lazyload: false
+    prepend_root: true
+    post_asset: true
   plugins:
     - name: '@renbaoshuo/markdown-it-katex'
       options:

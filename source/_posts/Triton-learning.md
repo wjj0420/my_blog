@@ -23,12 +23,12 @@ GPU 上有成千上万个 **线程（thread）**，每个线程做一点点工�
 - **线程块（Block）**：一组线程的集合，就像一个小队。
 - **网格（Grid）**：所有线程块组成的整体，就像整个学校。
 
-![GPU 的线程、线程块与网格结构](/img/posts/triton-gpu-structure.png)
+![GPU 的线程、线程块与网格结构](triton-gpu-structure.png)
 
 
 
-![线程组织方式示意图](/img/posts/triton-grid-block-thread.png)
+![线程组织方式示意图](triton-grid-block-thread.png)
 
-![稀疏注意力示意图](/img/posts/triton-sparse-attention.jpg)
+![稀疏注意力示意图](triton-sparse-attention.jpg)
 
-![向量加法并行化示意图](/img/posts/triton-vector-add.png)
+![向量加法并行化示意图](triton-vector-add.png)

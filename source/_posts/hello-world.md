@@ -56,8 +56,8 @@ node scripts/localize-images.mjs 文件名.md    # 只处理指定文章
 
 脚本会自动：
 
-- 下载外链图片到 `source/img/posts/` 目录；
-- 把 md 里的 `https://...` 链接改写为本地路径 `/img/posts/xxx.png`；
+- 下载外链图片到该文章同名的资源目录（如 `source/_posts/文章名/`）；
+- 把 md 里的 `https://...` 链接改写为相对文件名（如 `![](xxx.png)`），Typora 和网站都能正常显示；
 - 已处理过的图片自动跳过，可放心重复运行。
 
 ## 🖼️ 文章封面图（可选）

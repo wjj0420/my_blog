@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 /**
- * 将文章中的外链图片下载到本地并改写引用
+ * 将文章中的外链图片下载到本地并改写引用（Typora 友好版）
  *
  * 背景：你用 Typora + PicGo 写文章，图片会以 https://... 外链形式写入 md。
  * 外链图床如果失效，文章图片就会丢失。运行本脚本可把外链图片
- * 下载到 source/img/posts/ 并把 md 里的链接改成本地路径。
+ * 下载到该文章同名的资源目录（如 source/_posts/文章名/），
+ * 并把 md 里的链接改写成相对文件名（如 ![](xxx.png)）。
+ *
+ * 这样：
+ *  - Typora 本地预览：图片和 md 同目录，可正常显示；
+ *  - 网站部署：Hexo 的 post_asset_folder 会把资源目录复制到文章 URL 下。
  *
  * 用法：
  *   node scripts/localize-images.mjs            # 处理全部文章
@@ -18,16 +23,15 @@ import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const postsDir = join(root, 'source', '_posts');
-const imgDir = join(root, 'source', 'img', 'posts');
-mkdirSync(imgDir, { recursive: true });
 
 // 匹配 ![alt](https://...)
 const imgRe = /!\[([^\]]*)\]\((https?:\/\/[^)\s]+)\)/g;
 
-// 已存在的文件名 -> 直接复用，避免重复下载
-const existing = new Set(readdirSync(imgDir));
+async function download(url, postName) {
+  const postImgDir = join(postsDir, postName);
+  mkdirSync(postImgDir, { recursive: true });
+  const existing = new Set(readdirSync(postImgDir));
 
-async function download(url) {
   // 从 URL 推导基础文件名
   const pathname = new URL(url).pathname;
   const base = decodeURIComponent(basename(pathname)).replace(/[\\/:*?"<>|]/g, '_');
@@ -60,9 +64,8 @@ async function download(url) {
     return name; // 已下载过，复用
   }
 
-  writeFileSync(join(imgDir, name), buf);
-  existing.add(name);
-  console.log('  ↓ ' + name + ' (' + (buf.length / 1024).toFixed(0) + ' KB)');
+  writeFileSync(join(postImgDir, name), buf);
+  console.log('  ↓ ' + postName + '/' + name + ' (' + (buf.length / 1024).toFixed(0) + ' KB)');
   return name;
 }
 
@@ -93,14 +96,15 @@ async function main() {
       continue;
     }
 
+    const postName = file.endsWith('.md') ? file.slice(0, -3) : file;
     let changed = false;
     for (const m of matches) {
       const [full, alt, url] = m;
-      const name = await download(url);
+      const name = await download(url, postName);
       if (!name) continue;
-      const local = '/img/posts/' + name;
-      if (full !== '![' + alt + '](' + local + ')') {
-        md = md.replace(full, '![' + alt + '](' + local + ')');
+      // 相对引用：图片与文章同目录，Typora 和网站都能显示
+      if (full !== '![' + alt + '](' + name + ')') {
+        md = md.replace(full, '![' + alt + '](' + name + ')');
         changed = true;
         totalDownloaded++;
       }
